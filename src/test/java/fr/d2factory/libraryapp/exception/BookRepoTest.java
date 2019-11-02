@@ -76,4 +76,10 @@ public class BookRepoTest {
         Assert.assertEquals(null, bookRepository.findBorrowedBookDate(book));
     }
 
+    @Test
+    public void When_saving_returned_book_lists_get_updated() {
+        bookRepository.saveBookReturn(book);
+        Assert.assertFalse(bookRepository.getBorrowedBooks().containsKey(book));
+    }
+
 }
